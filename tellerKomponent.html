@@ -1,0 +1,25 @@
+<link rel="import" href="http://www.polymer-project.org/components/polymer/polymer.html">
+<!-- Define element -->
+<polymer-element name="my-counter" attributes="counter">
+  <template>
+    <style> /*...*/ </style>
+    <div id="label"><content></content></div>
+    Value: <span id="counterVal">{{counter}}</span><br>
+    <button on-tap="{{increment}}">Increment</button>
+    <button on-tap="{{decrement}}">Decrement</button>
+  </template>
+  <script>
+    Polymer({
+      counter: 0, // Default value
+      counterChanged: function() {
+        this.$.counterVal.classList.add('highlight');
+      },
+      increment: function() {
+        this.counter++;
+      },
+      decrement: function() {
+        this.counter--;
+      }
+    });
+  </script>
+</polymer-element>
